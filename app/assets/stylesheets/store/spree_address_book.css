@@ -1,3 +1,7 @@
+/*
+ * require store/spree_core
+ */
+
 div.inner input[type=text], div.inner select {
   width: 80%;
 }

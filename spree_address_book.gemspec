@@ -11,13 +11,12 @@ Gem::Specification.new do |s|
   s.homepage          = 'http://github.com/romul/spree_address_book'
   # s.rubyforge_project = 'actionmailer'
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  # s.files         = `git ls-files`.split("\n")
+  # s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
   s.add_dependency('spree_core', '~> 1.0')
-  s.add_dependency('spree_auth', '~> 1.0')
   
   s.add_development_dependency('rspec-rails',  '~> 2.7')
   s.add_development_dependency('sqlite3')

@@ -1,5 +1,5 @@
 # Configure Rails Environment
-ENV["RAILS_ENV"] ||= "test"
+ENV['RAILS_ENV'] = 'test'
 
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
@@ -45,7 +45,7 @@ RSpec.configure do |config|
     reset_spree_preferences
 
     # the demo data doesn't include all the countries for some reason...
-    Spree::Config[:default_country_id] = Spree::Country.find_by_iso3('USA').id
+    # Spree::Config[:default_country_id] = Spree::Country.find_by_iso3('USA').id
   end
 
   config.after(:each) do

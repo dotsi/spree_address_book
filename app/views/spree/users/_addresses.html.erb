@@ -1,8 +1,8 @@
+<% if spree_current_user.addresses.present? %>
 <h3><%= t(:shipping_addresses) %></h3>
-<% if current_user.addresses.present? %>
 <table id="user_addresses">
   <tbody>
-    <% current_user.addresses.each do |address| %>
+    <% spree_current_user.addresses.each do |address| %>
     <tr class="<%= cycle('even', 'odd') %>">
       <td><%= address %></td>
       <td>

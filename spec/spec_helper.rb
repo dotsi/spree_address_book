@@ -20,7 +20,6 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = false
   config.include Spree::Core::UrlHelpers
-  # config.include Spree::AddressBook::Engine::UrlHelpers
 
   # this is modeled after the spree core spec_helper
 
@@ -45,7 +44,7 @@ RSpec.configure do |config|
     reset_spree_preferences
 
     # the demo data doesn't include all the countries for some reason...
-    # Spree::Config[:default_country_id] = Spree::Country.find_by_iso3('USA').id
+    Spree::Config[:default_country_id] = Spree::Country.find_by_iso3('USA').id if Spree::Country.count > 0
   end
 
   config.after(:each) do

@@ -1,5 +1,5 @@
-<% if spree_current_user.addresses.present? %>
 <h3><%= t(:shipping_addresses) %></h3>
+<% if spree_current_user.addresses.present? %>
 <table id="user_addresses">
   <tbody>
     <% spree_current_user.addresses.each do |address| %>

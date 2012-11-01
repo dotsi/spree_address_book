@@ -1,13 +1,16 @@
 <%= form_for @address do |f| %>
-<fieldset>
-  <%= content_tag(:legend, t(:edit_shipping_address)) %>
-  <div class="inner">
-    <%= render :partial => 'spree/addresses/form', :locals => {
-      :address_name => 'address',
-      :address_form => f,
-      :address => @address
-    } %>
-  </div>
-  <%= f.submit t(:update) %>
-</fieldset>
+	
+	<%#= f.hidden_field :target, :value => "#{account_path}#addressbook" %>
+	
+	<h3><%= t(:edit_shipping_address) %></h3>
+ 	<div id="address_book_address">
+	    <%= render :partial => 'spree/addresses/form', :locals => {
+	      :address_name => 'address',
+	      :address_form => f,
+	      :address => @address
+	    } %>
+  	</div>
+  	<p>
+  		<%= f.submit t(:update), :class => "button" %>
+  	</p>
 <% end %>

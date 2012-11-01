@@ -1,23 +1,28 @@
-<h3><%= t(:shipping_addresses) %></h3>
 <% if spree_current_user.addresses.present? %>
-<table id="user_addresses">
-  <tbody>
-    <% spree_current_user.addresses.each do |address| %>
-    <tr class="<%= cycle('even', 'odd') %>">
-      <td><%= address %></td>
-      <td>
-        <%= link_to t(:edit), edit_address_path(address) %>&nbsp;
-        <%= link_to t(:remove), address_path(address), :method => :delete, :confirm => t(:are_you_sure) %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+	<table>
+		<thead>
+			<th colspan="2"><%= t :shipping_addresses %></th>
+		</thead>
+	 	<tbody>
+			<% spree_current_user.addresses.each do |address| %>
+				<tr>
+					<td class="address">
+						<%= render :partial => 'spree/shared/address_flat', :locals => { :address => address } %>
+					</td>
+					<td class="actions"> 
+						<%= link_to t(:edit), edit_address_path(address), :icon => "delete", :class=>"button secondary small" %>
+						<%= link_to t(:remove), address_path(address), :class => "button secondary small", :method => :delete, :confirm => t(:are_you_sure) %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
 <% else %>
-<div id="users-address-list-empty">
-<%= t(:no_shipping_addresses_on_file) %>
-</div>
+	<div id="users-address-list-empty">
+		<%= t(:no_shipping_addresses_on_file) %>
+	</div>
 <% end %>
-<div id="new_address_link">
-  <%= link_to t(:add_new_shipping_address), :controller => :addresses, :action => :new %>
-</div>
+
+<p>
+	<%= link_to t(:add_new_shipping_address), new_address_path, :class => "button" %>
+</p>

@@ -1,0 +1,16 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+  other_address: "Neue Adresse hinzufügen"
+  add_new_shipping_address: "Neue Adresse hinzufügen"
+  new_shipping_address: "Neue Adresse hinzufügen"
+  edit_shipping_address: "Addresse bearbeiten"
+  no_shipping_addresses_on_file: "Sie haben noch keine Adressen"
+  shipping_addresses: "Adressen"
+  successfully_saved: "Erfolgreich gespeichert"
+  unsuccessfully_saved: "Während des Vorgangs ist ein Fehler aufgetreten"
+  successfully_updated: "Erfolgreich geändert"
+  unsuccessfully_updated: "Während des Vorgangs ist ein Fehler aufgetreten"
+  save: "Speichern"
+  address_book: "Addressbuch"

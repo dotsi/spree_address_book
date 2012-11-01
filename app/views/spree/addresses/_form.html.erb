@@ -1,15 +1,103 @@
-<% ADDRESS_FIELDS.each do |field| %>
-  <% if field == "country" %>
-	<%= address_field(address_form, :country, address_name) do %>
-		<%= address_form.label :country_id, t(field, :scope => [:activerecord, :attributes, :address]) %><span class="req">*</span><br />
-		<span id="<%= address_name[0] %>country"><%= address_form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'required'} %></span>
-	<% end %>
-  <% elsif field == "state" && Spree::Config[:address_requires_state] %>
-    <%= address_field(address_form, :state, address_name) { address_state(address_form, address.country) } %>
-  <% else %>
-    <%= address_field(address_form, field.to_sym, address_name) %>
-  <% end %>
+<% if Spree::Config[:company] %>
+	<div class="row">
+	    <div class="three mobile-one columns">
+	    	<%= address_form.label :company, t(:company), :class => 'right inline' %></span>
+	    </div>
+	    <div class="nine mobile-three columns">
+	    	<%= address_form.text_field :company %>
+	    </div>
+	</div>	
 <% end %>
+<div class="row">
+    <div class="three mobile-one columns">
+    	<%= address_form.label :firstname, t(:first_name), :class => 'right inline' %><span class="required">*</span>
+    </div>
+    <div class="nine mobile-three columns">
+    	<%= address_form.text_field :firstname, :class => 'required' %>
+    </div>
+</div>
+<div class="row">
+    <div class="three mobile-one columns">
+    	<%= address_form.label :lastname, t(:last_name), :class => 'right inline' %><span class="required">*</span>
+    </div>
+    <div class="nine mobile-three columns">
+    	<%= address_form.text_field :lastname, :class => 'required' %>
+    </div>
+</div>
+<div class="row">
+    <div class="three mobile-one columns">
+    	<%= address_form.label :address1, t(:street_address), :class => 'right inline' %><span class="required">*</span>
+    </div>
+    <div class="nine mobile-three columns">
+    	<%= address_form.text_field :address1, :class => 'required' %>
+    </div>
+</div>
+<div class="row">
+    <div class="three mobile-one columns">
+    	<%= address_form.label :address2, t(:street_address_2), :class => 'right inline' %>
+    </div>
+    <div class="nine mobile-three columns">
+    	<%= address_form.text_field :address2 %>
+    </div>
+</div>
+<div class="row">
+    <div class="three mobile-one columns">
+    	<%= address_form.label :zipcode, t(:zip), :class => 'right inline' %><span class="required">*</span>
+    </div>
+    <div class="nine mobile-three columns">
+    	<%= address_form.text_field :zipcode, :class => 'required' %>
+    </div>
+</div>										
+<div class="row">
+    <div class="three mobile-one columns">
+    	<%= address_form.label :city, t(:city), :class => 'right inline' %><span class="required">*</span>
+    </div>
+    <div class="nine mobile-three columns">
+    	<%= address_form.text_field :city, :class => 'required' %>
+    </div>
+</div>	
+<% if Spree::Config[:address_requires_state] %>
+	<div class="row">
+	    <div class="three mobile-one columns">
+	    	<%= address_form.label :state, t(:state), :class => 'right inline' %><span class="required">*</span>
+	    </div>
+	    <div class="nine mobile-three columns">
+	    	<% have_states = !@order.bill_address.country.states.empty? %>
+			<%= address_form.label :state, t(:state) %><span class="required">*</span>
+			<br />
+			<% state_elements = [address_form.collection_select(:state_id, @order.bill_address.country.states,  :id, :name, {:include_blank => true}, {:class => have_states ? 'required' : 'hidden', :disabled => !have_states}) +  address_form.text_field(:state_name, :class => !have_states ? 'required' : 'hidden', :disabled => have_states)].join.gsub('"', "'").gsub("\n", "") %>
+			<%= javascript_tag do -%>
+				document.write("<%== state_elements %>");
+			<% end -%>
+	    </div>
+	</div>	
+	<noscript>
+		<%= address_form.text_field :state_name, :class => 'required' %>
+	</noscript>
+<% end %>
+<div class="row">
+    <div class="three mobile-one columns">
+    	<%= address_form.label :country_id, t(:country), :class => 'right inline' %><span class="required">*</span>
+    </div>
+    <div class="nine mobile-three columns">
+    	<span id="<%= address_name[0] %>country"> <%= address_form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'required'} %> </span>
+    </div>
+</div>	
+<div class="row">
+    <div class="three mobile-one columns">
+    	<%= address_form.label :phone, t(:phone), :class => 'right inline' %><span class="required">*</span>
+    </div>
+    <div class="nine mobile-three columns">
+    	<%= address_form.phone_field :phone, :class => 'required' %>
+    </div>
+</div>	
 <% if Spree::Config["alternative_#{address_name[0] == 'b' ? 'billing' : 'shipping'}_phone"] %>
-  <%= address_field(address_form, :alternative_phone, address_name) %>
+	<div class="row">
+	    <div class="three mobile-one columns">
+	    	<%= address_form.label :alternative_phone, t(:alternative_phone), :class => 'right inline' %><span class="required">*</span>
+	    </div>
+	    <div class="nine mobile-three columns">
+	    	<%= address_form.phone_field :alternative_phone, :class => 'required' %>
+	    </div>
+	</div>	
 <% end %>

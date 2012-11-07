@@ -45,7 +45,7 @@
     	<%= address_form.label :zipcode, t(:zip), :class => 'right inline' %><span class="required">*</span>
     </div>
     <div class="nine mobile-three columns">
-    	<%= address_form.text_field :zipcode, :class => 'required' %>
+    	<%= address_form.text_field :zipcode, :class => 'required zipcode' %>
     </div>
 </div>										
 <div class="row">
@@ -88,7 +88,7 @@
     	<%= address_form.label :phone, t(:phone), :class => 'right inline' %><span class="required">*</span>
     </div>
     <div class="nine mobile-three columns">
-    	<%= address_form.phone_field :phone, :class => 'required' %>
+    	<%= address_form.phone_field :phone, :class => 'required phone' %>
     </div>
 </div>	
 <% if Spree::Config["alternative_#{address_name[0] == 'b' ? 'billing' : 'shipping'}_phone"] %>
@@ -97,7 +97,7 @@
 	    	<%= address_form.label :alternative_phone, t(:alternative_phone), :class => 'right inline' %><span class="required">*</span>
 	    </div>
 	    <div class="nine mobile-three columns">
-	    	<%= address_form.phone_field :alternative_phone, :class => 'required' %>
+	    	<%= address_form.phone_field :alternative_phone, :class => 'required phone' %>
 	    </div>
 	</div>	
 <% end %>

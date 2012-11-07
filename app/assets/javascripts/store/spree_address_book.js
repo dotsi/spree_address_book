@@ -1,5 +1,40 @@
 //= require store/spree_core
 
+  $(document).ready(function(){
+
+  	$.validator.addMethod(
+        "zipcode",
+        function(value, element) {
+            return this.optional(element) || /^([0]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{3}$/.test(value);
+    });
+
+    $.validator.addMethod(
+		"phone", 
+		function(value, element) {
+			return this.optional(element) || /^[0-9/. \-]*$/.test(value);
+	});
+	
+	$("#account_form_address").validate();
+	
+	/*
+
+    $("#account_form_address").validate({
+	  rules: {
+	    'address[zipcode]': {
+	      	required: true,
+	      	postalcode: true
+	    },
+	    'address[phone]': {
+	    	required: true,
+	    	phone: true
+	    }
+	  }
+	});
+	
+	*/
+	
+  });
+
 (function($) {
   $(document).ready(function(){
     if ($(".select_address").length) {

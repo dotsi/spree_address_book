@@ -12,30 +12,26 @@
 		      		<%= label_tag :order_use_billing, t(:use_billing_address), :id => 'use_billing' %>
 		    	</p>
 		  	<% end %>
-		  	
 	  		<% if @addresses.present? %>
 				<div class="select_address">
 			      	<% @addresses.each_with_index do |address, idx| %>
-			      		<%= @order.ship_address.id %>
-			      		<%= address.id %>
-			      		<%= address.id == @order.ship_address.id %>
-			      		<%
-			      			if address_type == 'billing'
-			      				checked = address.id == @order.bill_address.id
-			      			elsif (address_type == 'shipping')	
-			      				checked = address.id == @order.ship_address.id
-			      			else 
-			      				checked = false
-			      			end
-			      		%>
-			      		<%= checked %>
-				      	<p class="field" id="<%= [address_type, dom_id(address)].join('_') %>">
-				        	<label>
-				        		<%= form.radio_button "#{address_name}_id", address.id, :checked => checked %> 
-				        		<%= render :partial => 'spree/shared/address_flat', :locals => { :address => address } %>
-				        	</label> 
-				        	(<%= link_to t(:edit), edit_address_path(address) %>)
-				      	</p>
+			      		<% unless address.deleted_at %>
+				      		<%
+				      			if address_type == 'billing'
+				      				checked = address.id == @order.bill_address.id
+				      			elsif (address_type == 'shipping')	
+				      				checked = address.id == @order.ship_address.id
+				      			end
+				      			checked = (!checked && idx == 0) ? true : checked 		
+				      		%>
+					      	<p class="field" id="<%= [address_type, dom_id(address)].join('_') %>">
+					        	<label>
+					        		<%= form.radio_button "#{address_name}_id", address.id, :checked => checked %> 
+					        		<%= render :partial => 'spree/shared/address_flat', :locals => { :address => address } %>
+					        	</label> 
+					        	(<%= link_to t(:edit), edit_address_path(address) %>)
+					      	</p>
+						<% end %>
 			      	<% end %>
 			      	<p class="field"><label><%= form.radio_button "#{address_name}_id", 0 %> <%= t('other_address') %></label></p>		   
 			  	</div>

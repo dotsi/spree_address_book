@@ -1,13 +1,10 @@
-<%= form_for @address do |f| %>
-	
-	<%#= f.hidden_field :target, :value => "#{account_path}#addressbook" %>
-	
+<%= form_for @address, :html => { :id => 'account_form_address', :class => 'custom' } do |f| %>
 	<h3><%= t(:edit_shipping_address) %></h3>
  	<div id="address_book_address">
 	    <%= render :partial => 'spree/addresses/form', :locals => {
-	      :address_name => 'address',
-	      :address_form => f,
-	      :address => @address
+	      	:address_name => 'address',
+	      	:address_form => f,
+	      	:address => @address
 	    } %>
   	</div>
   	<p>

@@ -1,14 +1,13 @@
-<%= content_tag(:h1, ) %>
-<%= form_for @address do |f| %>
-<fieldset>
-  <%= content_tag(:legend, t(:new_shipping_address)) %>  
-  <div class="inner">
-    <%= render :partial => 'spree/addresses/form', :locals => {
-      :address_name => 'address',
-      :address_form => f,
-      :address => @address
-    } %>
-  </div>
-  <%= f.submit t(:update) %>
-</fieldset>
+<%= form_for @address, :html => { :id => 'account_form_address', :class => 'custom' }  do |f| %>
+	<h3><%= t(:new_shipping_address) %></h3>
+	<div class="address_book_address">
+		<%= render :partial => 'spree/addresses/form', :locals => {
+			:address_name => 'address',
+			:address_form => f,
+			:address => @address
+		} %>
+	</div>
+	<p>
+		<%= f.submit t(:create), :class => "button" %>
+	</p>
 <% end %>

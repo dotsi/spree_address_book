@@ -1,4 +1,4 @@
-//= require store/spree_core
+// do not require store/spree_core cause it loads all spree standard js files
 
   $(document).ready(function(){
 

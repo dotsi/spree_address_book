@@ -1,6 +1,9 @@
-class Spree::AddressesController < Spree::BaseController
+class Spree::AddressesController < Spree::StoreController
+  
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
-  load_and_authorize_resource
+  
+  load_and_authorize_resource :class => "Spree::Address"
+
   def edit
     session["user_return_to"] = request.env['HTTP_REFERER']
   end
@@ -41,5 +44,5 @@ class Spree::AddressesController < Spree::BaseController
       redirect_back_or_default(account_path + "#addressbook")
     end
   end
-  
+
 end

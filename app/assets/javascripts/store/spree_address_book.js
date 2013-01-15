@@ -2,11 +2,11 @@
 
   $(document).ready(function(){
 
-  	$.validator.addMethod(
+  	/*$.validator.addMethod(
         "zipcode",
         function(value, element) {
-            return this.optional(element) || /^([0]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{3}$/.test(value);
-    });
+            return this.optional(element) || /^[0-9]{4,5}$/.test(value);
+    });*/
 
     $.validator.addMethod(
 		"phone", 

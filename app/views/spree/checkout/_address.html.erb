@@ -3,7 +3,7 @@
 <% ['billing', 'shipping'].each do |address_type|
   next if address_type == 'billing' && Spree::AddressBook::Config[:disable_bill_address]
   address_name = "#{address_type[0...4]}_address" %>
-	<div class="twelve columns" data-hook="<%= address_type %>_fieldset_wrapper">
+	<div class="twelve1 columns1 alpha1" data-hook="<%= address_type %>_fieldset_wrapper">
 		<fieldset id="<%= address_type %>">
 		  	<legend><%= t(address_type + "_address")%></legend>
 			<% if address_type == 'shipping' && !Spree::AddressBook::Config[:disable_bill_address] %>
@@ -27,7 +27,7 @@
 					      	<p class="field" id="<%= [address_type, dom_id(address)].join('_') %>">
 					        	<label>
 					        		<%= form.radio_button "#{address_name}_id", address.id, :checked => checked %> 
-					        		<%= render :partial => 'spree/shared/address_flat', :locals => { :address => address } %>
+					        		<%= address.to_s %><%# render :partial => 'spree/shared/address_flat', :locals => { :address => address } %>
 					        	</label> 
 					        	(<%= link_to t(:edit), edit_address_path(address) %>)
 					      	</p>
@@ -49,7 +49,7 @@
 	</div>
 <% end %>
 
-<hr class="space" />
+<!-- <hr class="space" /> -->
 
 <div class="form-buttons" data-hook="buttons">
 	<%= submit_tag t(:save_and_continue), :class => 'continue button primary' %>

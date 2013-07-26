@@ -39,19 +39,21 @@
   $(document).ready(function(){
     if ($(".select_address").length) {
       $('input#order_use_billing').unbind("click");
-      $(".inner").hide();
-      $(".inner input").prop("disabled", true);
-      $(".inner select").prop("disabled", true);
+      $("#billing .inner").hide(); //$(".inner").hide();
+      // $(".inner input").prop("disabled", true);
+      // $(".inner select").prop("disabled", true);
+      $("#billing .inner input").prop("disabled", true);
+      $("#billing .inner select").prop("disabled", true);
       if ($('input#order_use_billing').is(':checked')) {
-        $("#shipping .select_address").hide();
+        $("#shipping .shippingAaddress").hide();
       }
       
       $('input#order_use_billing').click(function() {
         if ($(this).is(':checked')) {
-          $("#shipping .select_address").hide();
+          $("#shipping .shippingAddress").hide();
           hide_address_form('shipping');
         } else {
-          $("#shipping .select_address").show();
+          $("#shipping .shippingAddress").show();
           if ($("input[name='order[ship_address_id]']:checked").val() == '0') {
             show_address_form('shipping');
           }

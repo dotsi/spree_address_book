@@ -1,67 +1,98 @@
 <% if Spree::Config[:company] %>
-	<div class="row">
-	    <div class="three mobile-one columns">
+	<div class="row mb10">
+	    <div class="">
 	    	<%= address_form.label :company, t(:company), :class => 'right inline' %></span>
 	    </div>
-	    <div class="nine mobile-three columns">
+	    <div class="">
 	    	<%= address_form.text_field :company %>
+            <span class="i di showOnLTELandscape">tu pride razlaga zakaj ime podjetja</span>
 	    </div>
 	</div>	
 <% end %>
-<div class="row">
-    <div class="three mobile-one columns">
+<div class="row mb10">
+    <div class="">
     	<%= address_form.label :firstname, t(:first_name), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine mobile-three columns">
+    <div class="">
     	<%= address_form.text_field :firstname, :class => 'required' %>
+        <span class="i di showOnLTELandscape">tu pride razlaga zakaj ime</span>
     </div>
 </div>
-<div class="row">
-    <div class="three mobile-one columns">
+<div class="row mb10">
+    <div class="">
     	<%= address_form.label :lastname, t(:last_name), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine mobile-three columns">
+    <div class="">
     	<%= address_form.text_field :lastname, :class => 'required' %>
+        <span class="i di showOnLTELandscape">tu pride razlaga zakaj morajo vpisati priimek</span>
     </div>
 </div>
-<div class="row">
-    <div class="three mobile-one columns">
+<div class="row mb10">
+    <div class="">
     	<%= address_form.label :address1, t(:street_address), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine mobile-three columns">
+    <div class="">
     	<%= address_form.text_field :address1, :class => 'required' %>
+        <span class="i di showOnLTELandscape">Prosimo, vpišite celoten naslov, kakor je napisan v imeniku</span>
     </div>
 </div>
-<div class="row">
-    <div class="three mobile-one columns">
-    	<%= address_form.label :address2, t(:street_address_2), :class => 'right inline' %>
+<!-- <div class="row mb10">
+    <div class="">
+    	<%#= address_form.label :address2, t(:street_address_2), :class => 'right inline' %>
     </div>
-    <div class="nine mobile-three columns">
-    	<%= address_form.text_field :address2 %>
+    <div class="">
+    	<%#= address_form.text_field :address2 %>
     </div>
-</div>
-<div class="row">
-    <div class="three mobile-one columns">
-    	<%= address_form.label :zipcode, t(:zip), :class => 'right inline' %><span class="required">*</span>
+</div> -->
+<div class="row mb10">
+    <!-- <div class="fl three1 columns1 alpha1 w100pOnLTELandscape" style="width:23%;">
+        <div class="">
+        	<%#= address_form.label :zipcode, t(:zip), :class => 'right inline' %><span class="required">*</span>
+        </div>
+        <div>
+        	<%#= address_form.text_field :zipcode, :class => 'required zipcode', :style => "width:65%;" %>
+        </div>
     </div>
-    <div class="nine mobile-three columns">
-    	<%= address_form.text_field :zipcode, :class => 'required zipcode' %>
+    <div class="fl seven1 columns1 alpha1 omega1 w100pOnLTELandscape" style="width:65%;">
+        <div class="">
+            <%#= address_form.label :city, t(:city), :class => 'right inline' %><span class="required">*</span>
+        </div>
+        <div>
+            <%#= address_form.text_field :city, :class => 'required city' %>
+        </div>
+    </div> -->
+    <div class="fl1 three1 columns1 alpha1 w100pOnLTELandscape1">
+        <div class="">
+            <%= address_form.label :zipcode, t(:zip) + ' in ' + t(:city), :class => 'right inline' %><span class="required">*</span>
+        </div>
+        <div>
+            <%= address_form.text_field :zipcode, :class => 'required zipcode mr10', :style => 'width:30px;' %>
+            <%= address_form.text_field :city, :class => 'required city waOnLTELandscape', :size => '19' %>
+            <span class="i di showOnLTELandscape">kraj in poštna številka</span>
+        </div>
+    <!-- <div class="fl seven1 columns1 alpha1 omega1 w100pOnLTELandscape" style="width:65%;"> -->
+        <!-- <div class="">
+            <%#= address_form.label :city, t(:city), :class => 'right inline' %><span class="required">*</span>
+        </div> -->
+        <!-- <div>
+            <%#= address_form.text_field :city, :class => 'required city' %>
+        </div> -->
     </div>
 </div>										
-<div class="row">
-    <div class="three mobile-one columns">
-    	<%= address_form.label :city, t(:city), :class => 'right inline' %><span class="required">*</span>
+<!-- <div class="row mb10">
+    <div class="">
+    	<%#= address_form.label :city, t(:city), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine mobile-three columns">
-    	<%= address_form.text_field :city, :class => 'required' %>
+    <div class="">
+    	<%#= address_form.text_field :city, :class => 'required city' %>
     </div>
-</div>	
+</div>	 -->
 <% if Spree::Config[:address_requires_state] %>
-	<div class="row">
-	    <div class="three mobile-one columns">
+	<div class="row mb10">
+	    <div class="">
 	    	<%= address_form.label :state, t(:state), :class => 'right inline' %><span class="required">*</span>
 	    </div>
-	    <div class="nine mobile-three columns">
+	    <div class="">
 	    	<% have_states = !@order.bill_address.country.states.empty? %>
 			<%= address_form.label :state, t(:state) %><span class="required">*</span>
 			<br />
@@ -69,35 +100,40 @@
 			<%= javascript_tag do -%>
 				document.write("<%== state_elements %>");
 			<% end -%>
+            <span class="i di showOnLTELandscape">tu pride razlaga zakaj potrebujemo podatek o državi</span>
 	    </div>
 	</div>	
 	<noscript>
 		<%= address_form.text_field :state_name, :class => 'required' %>
+        <span class="i di showOnLTELandscape">tu pride razlaga zakaj potrebujemo podatek o državi</span>
 	</noscript>
 <% end %>
-<div class="row">
-    <div class="three mobile-one columns">
+<div class="row mb10 dn">
+    <div class="">
     	<%= address_form.label :country_id, t(:country), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine mobile-three columns">
+    <div class="">
     	<span id="<%= address_name[0] %>country"> <%= address_form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'required'} %> </span>
+        <span class="i di showOnLTELandscape">tu pride razlaga zakaj potrebujemo podatek o državi</span>
     </div>
 </div>	
-<div class="row">
-    <div class="three mobile-one columns">
+<div class="row mb10">
+    <div class="">
     	<%= address_form.label :phone, t(:phone), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine mobile-three columns">
+    <div class="">
     	<%= address_form.phone_field :phone, :class => 'required phone' %>
+        <span class="i di showOnLTELandscape">tu pride razlaga zakaj potrebujemo telefonsko številko</span>
     </div>
 </div>	
 <% if Spree::Config["alternative_#{address_name[0] == 'b' ? 'billing' : 'shipping'}_phone"] %>
-	<div class="row">
-	    <div class="three mobile-one columns">
+	<div class="row mb10">
+	    <div class="">
 	    	<%= address_form.label :alternative_phone, t(:alternative_phone), :class => 'right inline' %><span class="required">*</span>
 	    </div>
-	    <div class="nine mobile-three columns">
+	    <div class="">
 	    	<%= address_form.phone_field :alternative_phone, :class => 'required phone' %>
+            <span class="i di showOnLTELandscape">tu pride razlaga zakaj potrebujemo telefonsko številko (alt)</span>
 	    </div>
 	</div>	
 <% end %>

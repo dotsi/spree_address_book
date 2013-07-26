@@ -2,9 +2,9 @@
  * require store/spree_core
  */
 
-div.inner input[type=text], div.inner select {
+/*div.inner input[type=text], div.inner select {
   width: 80%;
-}
+}*/
 
 div#checkout #checkout_form_address #billing .select_address label, div#checkout #checkout_form_address #shipping .select_address label {
   float: none;

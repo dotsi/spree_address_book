@@ -1,16 +1,16 @@
 <% if spree_current_user.addresses.present? %>
-	<table>
+	<table class="flex-table">
 		<thead>
 			<th colspan="2"><%= t :shipping_addresses %></th>
 		</thead>
 	 	<tbody>
 			<% spree_current_user.addresses.each do |address| %>
 				<tr>
-					<td class="address">
-						<%= render :partial => 'spree/shared/address_flat', :locals => { :address => address } %>
+					<td class="address fs88p fw300">
+						<%= address.to_s %><%# render :partial => 'spree/shared/address', :locals => { :address => address } %>
 					</td>
 					<td class="actions"> 
-						<%= link_to t(:edit), edit_address_path(address), :icon => "delete", :class=>"button secondary small" %>
+						<%= link_to t(:edit), edit_address_path(address), :icon => "delete", :class=>"button secondary small mb1lh" %>
 						<%= link_to t(:remove), address_path(address), :class => "button secondary small", :method => :delete, :confirm => t(:are_you_sure) %>
 					</td>
 				</tr>

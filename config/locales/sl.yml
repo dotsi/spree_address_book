@@ -1,0 +1,15 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+sl:
+  other_address: "Zamenjaj naslov"
+  add_new_shipping_address: "Dodaj naslov"
+  new_shipping_address: "Nov naslov"
+  edit_shipping_address: "Uredi naslov"
+  no_shipping_addresses_on_file: "Nimate še nobenih naslovov"
+  shipping_addresses: "Naslov"
+  successfully_saved: "Shranjeno"
+  unsuccessfully_saved: "Prišlo je do napake"
+  successfully_updated: "Urejeno"
+  unsuccessfully_updated: "Prišlo je do napake"
+  save: "Shrani"

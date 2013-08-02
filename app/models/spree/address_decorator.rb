@@ -28,7 +28,7 @@ Spree::Address.class_eval do
     [
       "#{firstname} #{lastname}",
       "#{address1}" "#{address2}",
-      "#{state || state_name} #{zipcode} #{city}",
+      "#{zipcode} #{city}",
       "#{country}"
     ].join("<br/>").html_safe
   end

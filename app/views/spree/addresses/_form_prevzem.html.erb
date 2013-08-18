@@ -1,58 +1,58 @@
 <% if Spree::Config[:company] %>
 	<div class="row">
-	    <div class="three1 mobile-one columns1">
+	    <div class="">
 	    	<%= address_form.label :company, t(:company), :class => 'right inline' %></span>
 	    </div>
-	    <div class="nine1 mobile-three columns1">
+	    <div class="">
 	    	<%= address_form.text_field :company %>
-            <span class="i di showOnLTELandscape">tu pride razlaga zakaj podjetje</span>
+            <span class="i di showOnLTELandscape">Vnesite ime podjetja. Ime za dostavo lahko spremenite ob naročilu.</span>
 	    </div>
 	</div>	
 <% end %>
 <div class="row">
-    <div class="three1 mobile-one columns1">
+    <div class="">
     	<%= address_form.label :firstname, t(:first_name), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine1 mobile-three columns1">
+    <div class="">
     	<%= address_form.text_field :firstname, :class => 'required' %>
-        <span class="i di showOnLTELandscape">tu pride razlaga zakaj ime</span>
+        <span class="i di showOnLTELandscape">Vnesite svoje ime. Ime za dostavo lahko spremenite ob naročilu.</span>
     </div>
 </div>
 <div class="row">
-    <div class="three1 mobile-one columns1">
+    <div class="">
     	<%= address_form.label :lastname, t(:last_name), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine1 mobile-three columns1">
+    <div class="">
     	<%= address_form.text_field :lastname, :class => 'required' %>
-        <span class="i di showOnLTELandscape">tu pride razlaga zakaj priimek</span>
+        <span class="i di showOnLTELandscape">Vnesite svoj priimek. Priimek za dostavo lahko spremenite ob naročilu.</span>
     </div>
 </div>
 
 <div class="row dn">
-    <div class="three1 mobile-one columns1">
+    <div class="">
     	<%= address_form.label :country_id, t(:country), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine1 mobile-three columns1">
+    <div class="">
     	<span id="<%= address_name[0] %>country"> <%= address_form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'required'} %> </span>
         <span class="i di showOnLTELandscape">tu pride razlaga zakaj država</span>
     </div>
 </div>
 	
 <div class="row">
-    <div class="three1 mobile-one columns1">
+    <div class="">
     	<%= address_form.label :phone, t(:phone), :class => 'right inline' %><span class="required">*</span>
     </div>
-    <div class="nine1 mobile-three columns1">
+    <div class="">
     	<%= address_form.phone_field :phone, :class => 'required phone' %>
-        <span class="i di showOnLTELandscape">tu pride razlaga zakaj telefon</span>
+        <span class="i di showOnLTELandscape">Ob prvem naročilu bomo vaše podatke preverili po telefonu. Vnesite številko na kateri ste vedno dosegljivi.</span>
     </div>
 </div>	
 <% if Spree::Config["alternative_#{address_name[0] == 'b' ? 'billing' : 'shipping'}_phone"] %>
 	<div class="row">
-	    <div class="three1 mobile-one columns1">
+	    <div class="">
 	    	<%= address_form.label :alternative_phone, t(:alternative_phone), :class => 'right inline' %><span class="required">*</span>
 	    </div>
-	    <div class="nine1 mobile-three columns1">
+	    <div class="">
 	    	<%= address_form.phone_field :alternative_phone, :class => 'required phone' %>
             <span class="i di showOnLTELandscape">tu pride razlaga zakaj telefon (alt)</span>
 	    </div>

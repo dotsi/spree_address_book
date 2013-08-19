@@ -5,7 +5,7 @@
 	    </div>
 	    <div class="">
 	    	<%= address_form.text_field :company %>
-            <span class="i di showOnLTELandscape">Vnesite ime podjetja. Ime za dostavo lahko spremenite ob naročilu.</span>
+            <span class="i di showOnLTELandscape">Vnesite ime podjetja.</span>
 	    </div>
 	</div>	
 <% end %>
@@ -15,7 +15,7 @@
     </div>
     <div class="">
     	<%= address_form.text_field :firstname, :class => 'required' %>
-        <span class="i di showOnLTELandscape">Vnesite svoje ime. Ime za dostavo lahko spremenite ob naročilu.</span>
+        <span class="i di showOnLTELandscape">Vnesite svoje ime.</span>
     </div>
 </div>
 <div class="row">
@@ -24,7 +24,7 @@
     </div>
     <div class="">
     	<%= address_form.text_field :lastname, :class => 'required' %>
-        <span class="i di showOnLTELandscape">Vnesite svoj priimek. Priimek za dostavo lahko spremenite ob naročilu.</span>
+        <span class="i di showOnLTELandscape">Vnesite svoj priimek.</span>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
     </div>
     <div class="">
     	<%= address_form.phone_field :phone, :class => 'required phone' %>
-        <span class="i di showOnLTELandscape">Ob prvem naročilu bomo vaše podatke preverili po telefonu. Vnesite številko na kateri ste vedno dosegljivi.</span>
+        <span class="i di showOnLTELandscape">Poklicali vas bomo le zaradi pomembnih informacij v zvezi z vašim naročilom</span>
     </div>
 </div>	
 <% if Spree::Config["alternative_#{address_name[0] == 'b' ? 'billing' : 'shipping'}_phone"] %>

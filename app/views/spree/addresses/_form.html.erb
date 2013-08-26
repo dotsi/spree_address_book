@@ -5,7 +5,7 @@
 	    </div>
 	    <div class="">
 	    	<%= address_form.text_field :company %>
-            <span class="i di showOnLTELandscape">Vnesite ime podjetja.</span>
+            <span class="i di fs88p showOnLTELandscape">Vnesite ime podjetja.</span>
 	    </div>
 	</div>	
 <% end %>
@@ -15,7 +15,7 @@
     </div>
     <div class="">
     	<%= address_form.text_field :firstname, :class => 'required' %>
-        <span class="i di showOnLTELandscape">Vnesite svoje ime.</span>
+        <span class="i di fs88p showOnLTELandscape">Vnesite svoje ime.</span>
     </div>
 </div>
 <div class="row mb10">
@@ -24,7 +24,7 @@
     </div>
     <div class="">
     	<%= address_form.text_field :lastname, :class => 'required' %>
-        <span class="i di showOnLTELandscape">Vnesite svoj priimek.</span>
+        <span class="i di fs88p showOnLTELandscape">Vnesite svoj priimek.</span>
     </div>
 </div>
 <div class="row mb10">
@@ -33,7 +33,7 @@
     </div>
     <div class="">
     	<%= address_form.text_field :address1, :class => 'required' %>
-        <span class="i di showOnLTELandscape">Vnesite ulico in hišno številko vašega glavnega naslova.</span>
+        <span class="i di fs88p showOnLTELandscape">Vnesite ulico in hišno številko vašega glavnega naslova.</span>
     </div>
 </div>
 
@@ -46,7 +46,7 @@
         <div>
             <%= address_form.text_field :zipcode, :class => 'required zipcode mr10', :style => 'width:30px;' %>
             <%= address_form.text_field :city, :class => 'required city waOnLTELandscape', :size => '19' %>
-            <span class="i di showOnLTELandscape">Vnesite kraj in poštno številko vašega glavnega naslova.</span>
+            <span class="i di fs88p showOnLTELandscape">Vnesite kraj in poštno številko vašega glavnega naslova.</span>
         </div>
     
     </div>
@@ -65,12 +65,12 @@
 			<%= javascript_tag do -%>
 				document.write("<%== state_elements %>");
 			<% end -%>
-            <span class="i di showOnLTELandscape">tu pride razlaga zakaj potrebujemo podatek o državi</span>
+            <span class="i di fs88p showOnLTELandscape">tu pride razlaga zakaj potrebujemo podatek o državi</span>
 	    </div>
 	</div>	
 	<noscript>
 		<%= address_form.text_field :state_name, :class => 'required' %>
-        <span class="i di showOnLTELandscape">tu pride razlaga zakaj potrebujemo podatek o državi</span>
+        <span class="i di fs88p showOnLTELandscape">tu pride razlaga zakaj potrebujemo podatek o državi</span>
 	</noscript>
 <% end %>
 <div class="row mb10 dn">
@@ -79,7 +79,7 @@
     </div>
     <div class="">
     	<span id="<%= address_name[0] %>country"> <%= address_form.collection_select :country_id, available_countries, :id, :name, {}, {:class => 'required'} %> </span>
-        <span class="i di showOnLTELandscape">tu pride razlaga zakaj potrebujemo podatek o državi</span>
+        <span class="i di fs88p showOnLTELandscape">tu pride razlaga zakaj potrebujemo podatek o državi</span>
     </div>
 </div>	
 <div class="row mb10">
@@ -88,7 +88,7 @@
     </div>
     <div class="">
     	<%= address_form.phone_field :phone, :class => 'required phone' %>
-        <span class="i di showOnLTELandscape">Poklicali vas bomo le zaradi pomembnih informacij v zvezi z vašim naročilom.</span>
+        <span class="i di fs88p showOnLTELandscape">Poklicali vas bomo le zaradi pomembnih informacij v zvezi z vašim naročilom.</span>
     </div>
 </div>	
 <% if Spree::Config["alternative_#{address_name[0] == 'b' ? 'billing' : 'shipping'}_phone"] %>
@@ -98,7 +98,7 @@
 	    </div>
 	    <div class="">
 	    	<%= address_form.phone_field :alternative_phone, :class => 'required phone' %>
-            <span class="i di showOnLTELandscape">tu pride razlaga zakaj potrebujemo telefonsko številko (alt)</span>
+            <span class="i di fs88p showOnLTELandscape">tu pride razlaga zakaj potrebujemo telefonsko številko (alt)</span>
 	    </div>
 	</div>	
 <% end %>

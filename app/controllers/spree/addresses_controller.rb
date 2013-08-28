@@ -1,5 +1,5 @@
 class Spree::AddressesController < Spree::StoreController
-  
+  ssl_allowed :destroy, :edit
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
   
   load_and_authorize_resource :class => "Spree::Address"
